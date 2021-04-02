@@ -2,6 +2,7 @@ import React, {ReactNode} from 'react';
 import {hasToken} from './services/auth';
 import Account from './views/account';
 import Auth from './views/auth';
+import Boots from './views/havok/boots';
 import ClusterRole from './views/clusterRole';
 import ClusterRoleBinding from './views/clusterRoleBinding';
 import ConfigMap from './views/configMap';
@@ -13,19 +14,23 @@ import Deployment from './views/deployment';
 import Exec from './views/exec';
 import Ingress from './views/ingress';
 import Ingresses from './views/ingresses';
+import Javaboot from './views/havok/javaboot';
 import Job from './views/job';
 import Logs from './views/logs';
 import Namespace from './views/namespace';
 import Namespaces from './views/namespaces';
 import Node from './views/node';
+import Nodejsboot from './views/havok/nodejsboot';
 import Nodes from './views/nodes';
 import NotFound from './views/notFound';
 import PersistentVolume from './views/persistentVolume';
 import PersistentVolumeClaim from './views/persistentVolumeClaim';
 import PersistentVolumeClaims from './views/persistentVolumeClaims';
 import PersistentVolumes from './views/persistentVolumes';
+import Phpboot from './views/havok/phpboot';
 import Pod from './views/pod';
 import Pods from './views/pods';
+import Pythonboot from "./views/havok/pythonboot";
 import ReplicaSet from './views/replicaSet';
 import ReplicaSets from './views/replicaSets';
 import Role from './views/role';
@@ -41,6 +46,7 @@ import Services from './views/services';
 import StatefulSet from './views/statefulSet';
 import StorageClass from './views/storageClass';
 import StorageClasses from './views/storageClasses';
+import Webboot from './views/havok/webboot';
 import Workloads from './views/workloads';
 
 type Params = {[name: string]: any};
@@ -108,6 +114,17 @@ registerRoute('storageclass', () => <StorageClasses />);
 // @ts-ignore
 registerRoute('storageclass/:name', params => <StorageClass {...params} />);
 registerRoute('workload', () => <Workloads />);
+registerRoute('boots', () => <Boots />);
+// @ts-ignore
+registerRoute('boots/javaboot/:namespace/:name', params => <Javaboot {...params} />);
+// @ts-ignore
+registerRoute('boots/pythonboot/:namespace/:name', params => <Pythonboot {...params} />);
+// @ts-ignore
+registerRoute('boots/phpboot/:namespace/:name', params => <Phpboot {...params} />);
+// @ts-ignore
+registerRoute('boots/nodejsboot/:namespace/:name', params => <Nodejsboot {...params} />);
+// @ts-ignore
+registerRoute('boots/webboot/:namespace/:name', params => <Webboot {...params} />);
 // @ts-ignore
 registerRoute('workload/cronjob/:namespace/:name', params => <CronJob {...params} />);
 // @ts-ignore

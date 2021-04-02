@@ -66,6 +66,7 @@ export default class Menu extends Base<MenuProps, MenuStates> {
 
                     {/* Workloads */}
                     <Group>
+                        <MenuItem title='Boots' path='boots' resource='Boot' onClick={onClick} />
                         {canView(rules, api.deployment) && (
                             <MenuItem title='Workloads' path='workload' resource='Deployment' onClick={onClick} />
                         )}

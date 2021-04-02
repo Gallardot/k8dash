@@ -3,6 +3,7 @@ import Select, {ValueType} from 'react-select';
 import Base from './base';
 import api from '../services/api';
 import {TODO} from '../utils/types';
+import InitNamespace from './havok/namespaceInit';
 
 interface NamespaceFilterProps {
     onChange?: Function;
@@ -18,6 +19,7 @@ export default class NamespaceFilter extends Base<NamespaceFilterProps, Namespac
 
     constructor({onChange}: { onChange: Function }) {
         super({});
+        InitNamespace();
         const {namespace} = localStorage;
         this.state = {namespace};
         this.onChange = onChange;
